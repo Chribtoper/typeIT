@@ -13,7 +13,6 @@ class TypePanel extends React.Component {
     badChars: [],
     validWords: null,
     badWords: null,
-    tempChars: [],
     index: 0
   }
 
@@ -25,41 +24,37 @@ class TypePanel extends React.Component {
   }
 
   handleInput = (input) => {
-    this.setState({
-      input: input,
-      tempChars: input.split(''),
-    }, this.compareCharacter()
+    if (input[input.length-1]===" "){
+      this.handleWordLockIn(input, this.state.index, this.state.myArray)
+    } else {
+      this.setState({
+        input: input,
+      }, this.compareCharacter(input, this.state.index)
   )}
-
-  handleCorrectWord = () => {
-    
   }
 
-  compareCharacter = () => {
-    const tempCharString = this.state.tempChars.join("")
-    const givenCharString = this.state.givenTextCharArray[this.state.index].slice(0, this.state.tempChars.length).join("")
+  handleWordLockIn = (input, index, myArray) => {
+    this.setState({
+      index: index+1,
+      myArray: [...myArray, input]
+    })
+  }
+
+  compareCharacter = (input, index) => {
+    const tempCharString = input
+    const givenCharString = this.state.givenTextCharArray[index].slice(0, input.length).join("")
     if (tempCharString === givenCharString){
       this.setState({
-        validWords: tempCharString,
+        validWords: input,
         badWords: null
       })
     } else {
       this.setState({
         validWords: null,
-        badWords: tempCharString
+        badWords: input
       })
     }
   }
-  // compareCharacter = (arr, input) => {
-  //   for (let i = 0; i < arr.length; i++) {
-  //     if (tempChars[i] === givenText[i] ) {
-  //       return 'yay'
-  //     } else {
-  //       return 'poopy'
-  //     }
-  //   }
-  // }
-
 
   render(){
 
