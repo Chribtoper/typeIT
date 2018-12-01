@@ -8,7 +8,7 @@ class TypePanel extends React.Component {
     givenTextWords: null,
     givenText: "Thought I'd end up with Sean But he wasn't a match Wrote some songs about Ricky Now I listen and laugh Even almost got married and for Pete, I'm so thankful Wish I could say, 'Thank you' to Malcolm",
     myArray: [],
-    tempyArray: [],
+    currentString: null,
     validChars: [],
     badChars: [],
     validWords: null,
@@ -23,21 +23,25 @@ class TypePanel extends React.Component {
     })
   }
 
-  handleInput = (input) => {
-    if (input[input.length-1]===" "){
-      this.handleWordLockIn(input, this.state.index, this.state.myArray)
+  handleInput = (e, index, myArray, givenTextWords) => {
+    let input = e.target.value
+    console.log(input)
+    console.log(givenTextWords[index])
+    if (input[input.length-1]===" " || givenTextWords[index]===input){
+      this.handleWordLockIn(input, index, myArray, e)
     } else {
       this.setState({
         input: input,
-      }, this.compareCharacter(input, this.state.index)
-  )}
+      }, this.compareCharacter(input, index)
+    )}
   }
 
-  handleWordLockIn = (input, index, myArray) => {
+  handleWordLockIn = (input, index, myArray, e) => {
     this.setState({
-      index: index+1,
-      myArray: [...myArray, input]
+      myArray: [...myArray, input.replace(/\s/g,'')],
+      index: index+1
     })
+    e.target.value = ""
   }
 
   compareCharacter = (input, index) => {
@@ -58,24 +62,22 @@ class TypePanel extends React.Component {
 
   render(){
 
-    console.log(this.state.givenText[0].toLowerCase().split('')[this.state.i-1]);
-
-
     return(
       <div>
-      <p>{console.log(this.state.givenText)}</p>
       <p>
         {this.state.givenText}
+      </p>
+      <p>
+        {this.state.myArray}
       </p>
         <form>
           <label>
             TypeIT:
             <input
               type="text"
-              onChange={ (event) => this.handleInput(event.target.value)}
+              onChange={ (e) => this.handleInput(e, this.state.index, this.state.myArray, this.state.givenTextWords)}
               />
           </label>
-          <input type="submit" value="Submit" />
         </form>
       </div>
 
