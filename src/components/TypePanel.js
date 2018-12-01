@@ -11,10 +11,10 @@ class TypePanel extends React.Component {
     tempyArray: [],
     validChars: [],
     badChars: [],
-    validWords: [],
-    badWords: [],
+    validWords: null,
+    badWords: null,
     tempChars: [],
-    i: 0
+    index: 0
   }
 
   componentDidMount() {
@@ -27,15 +27,29 @@ class TypePanel extends React.Component {
   handleInput = (input) => {
     this.setState({
       input: input,
-      tempChars: [input.split('')],
-      // i: this.state.i+1
-      // if input equals given text then set state
-      // if input !equal given text then set state
-      // if input(keyDown) equals backspace => then change state appropriately
-      // if input keydown equals spacebar => change state appropriately
-    }, () => console.log(this.state.input.split('')[this.state.i-1])
+      tempChars: input.split(''),
+    }, this.compareCharacter()
   )}
 
+  handleCorrectWord = () => {
+    
+  }
+
+  compareCharacter = () => {
+    const tempCharString = this.state.tempChars.join("")
+    const givenCharString = this.state.givenTextCharArray[this.state.index].slice(0, this.state.tempChars.length).join("")
+    if (tempCharString === givenCharString){
+      this.setState({
+        validWords: tempCharString,
+        badWords: null
+      })
+    } else {
+      this.setState({
+        validWords: null,
+        badWords: tempCharString
+      })
+    }
+  }
   // compareCharacter = (arr, input) => {
   //   for (let i = 0; i < arr.length; i++) {
   //     if (tempChars[i] === givenText[i] ) {
