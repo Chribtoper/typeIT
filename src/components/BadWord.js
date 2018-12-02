@@ -3,9 +3,9 @@ import React from 'react'
 const BadWord = props => {
 
     return(
-      <div className="BadWord">
+      <span className="BadWord">
           {props.input}
-      </div>
+      </span>
     )
 
 }

@@ -70,12 +70,8 @@ class TypePanel extends React.Component {
         {this.state.givenText}
       </p>
         <div className="AllWords">
-            <div className="SubmittedWords">
               {this.state.allSubmittedWords}
-            </div>        
-            <div className="TextField">
               {this.state.currentWordComponent}
-            </div>
         </div>
 
         <form>
