@@ -69,7 +69,7 @@ class TypePanel extends React.Component {
       <p>
         {this.state.givenText}
       </p>
-        <p>{this.state.allWords}</p>
+        <WordContainer state={this.state} />
         <form>
           <label>
             TypeIT:
