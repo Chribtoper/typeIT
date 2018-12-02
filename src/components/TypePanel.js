@@ -27,7 +27,7 @@ class TypePanel extends React.Component {
     let input = e.target.value
     console.log(input)
     console.log(givenTextWords[index])
-    if (input[input.length-1]===" " || givenTextWords[index]===input){
+    if (input[input.length-1]===" ") {
       this.handleWordLockIn(input, index, myArray, e)
     } else {
       this.setState({
@@ -67,9 +67,7 @@ class TypePanel extends React.Component {
       <p>
         {this.state.givenText}
       </p>
-      <p>
-        {this.state.myArray}
-      </p>
+        <p>{this.state.myArray.join(" ")}</p>
         <form>
           <label>
             TypeIT:
