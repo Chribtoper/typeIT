@@ -1,17 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import MainContent from './containers/MainContent'
+import MainContent2 from './containers/MainContent2'
 import Header from './components/Header'
-import TypePanel from './containers/TypePanel'
+import TypePanel2 from './containers/TypePanel2'
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
-        <MainContent />
-        <TypePanel />
+
+        <MainContent2 />
+        <TypePanel2 />
       </div>
     )
   }

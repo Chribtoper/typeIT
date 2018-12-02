@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = () => {
+const LoadView = () => {
   return(
     <div className="ui menu">
       <div className="header item">
@@ -19,4 +19,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default LoadView

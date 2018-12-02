@@ -34,3 +34,29 @@
 .BadWord {
   text-decoration: line-through;
 }
+
+.Left-Panel {
+  border: none;
+  border-width: 0;
+  box-shadow: none;
+  text-align: right;
+  width: 50%;
+
+}
+
+.Right-Panel {
+  border: none;
+  border-width: 0;
+  box-shadow: none;
+  text-align: left;
+  width: 50%;
+}
+
+.menu {
+    width: 25%;
+    float: left;
+}
+.main {
+    width: 75%;
+    float: left;
+}
