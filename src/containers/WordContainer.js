@@ -1,5 +1,4 @@
 import React from 'react'
-import Word from '../components/Word'
 
 export default class WordContainer extends React.Component {
 
