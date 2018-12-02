@@ -3,13 +3,16 @@ import Word from '../components/Word'
 
 export default class WordContainer extends React.Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {...props.state}
+  state = {
+    words: []
   }
 
   showWords = () => {
-    debugger
+
+  }
+
+  createWord = () => {
+
   }
 
   render() {

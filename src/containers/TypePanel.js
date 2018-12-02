@@ -1,5 +1,7 @@
 import React from 'react'
 import WordContainer from './WordContainer'
+import Word from '../components/Word'
+import BadWord from '../components/BadWord'
 
 class TypePanel extends React.Component {
 
@@ -9,12 +11,9 @@ class TypePanel extends React.Component {
     givenTextWords: null,
     givenText: "Thought I'd end up with Sean But he wasn't a match Wrote some songs about Ricky Now I listen and laugh Even almost got married and for Pete, I'm so thankful Wish I could say, 'Thank you' to Malcolm",
     myArray: [],
-    currentString: null,
-    validChars: [],
-    badChars: [],
     validWords: null,
     badWords: null,
-    allWords: [],
+    currentWordComponent: null,
     index: 0
   }
 
@@ -27,8 +26,6 @@ class TypePanel extends React.Component {
 
   handleInput = (e, index, myArray, givenTextWords) => {
     let input = e.target.value
-    console.log(input)
-    console.log(givenTextWords[index])
     if (input[input.length-1]===" ") {
       this.handleWordLockIn(input, index, myArray, e)
     } else {
@@ -52,14 +49,20 @@ class TypePanel extends React.Component {
     if (tempCharString === givenCharString){
       this.setState({
         validWords: input,
-        badWords: null
+        badWords: null,
+        currentWordComponent: <Word key={index} input={input} />
       })
     } else {
       this.setState({
         validWords: null,
-        badWords: input
+        badWords: input,
+        currentWordComponent: <BadWord key={index} input={input} />
       })
     }
+  }
+
+  showCurrentWord = () => {
+
   }
 
   render(){
@@ -69,9 +72,7 @@ class TypePanel extends React.Component {
       <p>
         {this.state.givenText}
       </p>
-        <WordContainer
-          state={this.state}
-        />
+
         <form>
           <label>
             TypeIT:

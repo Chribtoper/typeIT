@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Word = props => {
+const BadWord = props => {
 
     return(
       <div>
@@ -9,4 +9,4 @@ const Word = props => {
 
 }
 
-export default Word
+export default BadWord
