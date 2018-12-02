@@ -1,14 +1,15 @@
 import React from 'react'
 import Word from '../components/Word'
 
-export default class TypePanel extends React.Component {
+export default class WordContainer extends React.Component {
 
   constructor(props) {
     super(props)
+    this.state = {...props.state}
   }
 
   showWords = () => {
-    
+    debugger
   }
 
   render() {
