@@ -1,4 +1,5 @@
 import React from 'react'
+import WordContainer from './WordContainer'
 
 class TypePanel extends React.Component {
 
@@ -13,6 +14,7 @@ class TypePanel extends React.Component {
     badChars: [],
     validWords: null,
     badWords: null,
+    allWords: [],
     index: 0
   }
 
@@ -67,7 +69,7 @@ class TypePanel extends React.Component {
       <p>
         {this.state.givenText}
       </p>
-        <p>{this.state.myArray.join(" ")}</p>
+        <p>{this.state.allWords}</p>
         <form>
           <label>
             TypeIT:

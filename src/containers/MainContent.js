@@ -1,5 +1,5 @@
 import React from 'react'
-import Stats from './Stats'
+import Stats from '../components/Stats'
 
 
 class MainContent extends React.Component {
