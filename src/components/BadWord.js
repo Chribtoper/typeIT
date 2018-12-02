@@ -4,7 +4,7 @@ const BadWord = props => {
 
     return(
       <div className="BadWord">
-        {props.input}
+          {props.input}
       </div>
     )
 

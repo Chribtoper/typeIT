@@ -31,6 +31,23 @@
   }
 }
 
+.SubmittedWords {
+
+}
+
+.TextField {
+
+}
+
 .BadWord {
   text-decoration: line-through;
+}
+
+.GoodWord {
+
+}
+
+.AllWords {
+  background-color: #5B8587;
+  width:100%;
 }

@@ -65,11 +65,19 @@ class TypePanel extends React.Component {
   render(){
 
     return(
-      <div>
+      <div className="Page">
       <p>
         {this.state.givenText}
       </p>
-        <span>{this.state.allSubmittedWords} {this.state.currentWordComponent}</span>
+        <div className="AllWords">
+            <div className="SubmittedWords">
+              {this.state.allSubmittedWords}
+            </div>        
+            <div className="TextField">
+              {this.state.currentWordComponent}
+            </div>
+        </div>
+
         <form>
           <label>
             TypeIT:
@@ -79,7 +87,10 @@ class TypePanel extends React.Component {
               />
           </label>
         </form>
+
       </div>
+
+
 
     )
   }
