@@ -10,7 +10,7 @@ class TypePanel extends React.Component {
     givenTextCharArray: null,
     givenTextWords: null,
     givenText: "Thought I'd end up with Sean But he wasn't a match Wrote some songs about Ricky Now I listen and laugh Even almost got married and for Pete, I'm so thankful Wish I could say, 'Thank you' to Malcolm",
-    myArray: [],
+    allSubmittedWords: [],
     validWords: null,
     badWords: null,
     currentWordComponent: null,
@@ -24,10 +24,10 @@ class TypePanel extends React.Component {
     })
   }
 
-  handleInput = (e, index, myArray, givenTextWords) => {
+  handleInput = (e, index, allSubmittedWords, givenTextWords) => {
     let input = e.target.value
     if (input[input.length-1]===" ") {
-      this.handleWordLockIn(input, index, myArray, e)
+      this.handleWordLockIn(input, index, allSubmittedWords, e)
     } else {
       this.setState({
         input: input,
@@ -35,10 +35,11 @@ class TypePanel extends React.Component {
     )}
   }
 
-  handleWordLockIn = (input, index, myArray, e) => {
+  handleWordLockIn = (input, index, allSubmittedWords, e) => {
     this.setState({
-      myArray: [...myArray, input.replace(/\s/g,'')],
-      index: index+1
+      allSubmittedWords: [...allSubmittedWords, this.state.currentWordComponent],
+      index: index+1,
+      currentWordComponent: null
     })
     e.target.value = ""
   }
@@ -61,10 +62,6 @@ class TypePanel extends React.Component {
     }
   }
 
-  showCurrentWord = () => {
-
-  }
-
   render(){
 
     return(
@@ -72,13 +69,13 @@ class TypePanel extends React.Component {
       <p>
         {this.state.givenText}
       </p>
-        {this.state.currentWordComponent}
+        <span>{this.state.allSubmittedWords} {this.state.currentWordComponent}</span>
         <form>
           <label>
             TypeIT:
             <input
               type="text"
-              onChange={ (e) => this.handleInput(e, this.state.index, this.state.myArray, this.state.givenTextWords)}
+              onChange={ (e) => this.handleInput(e, this.state.index, this.state.allSubmittedWords, this.state.givenTextWords)}
               />
           </label>
         </form>
