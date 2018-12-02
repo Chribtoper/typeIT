@@ -1,4 +1,7 @@
 import React from 'react'
+import Word from '../components/Word'
+import BadWord from '../components/BadWord'
+import NextWord from '../components/NextWord'
 
 export default class WordContainer extends React.Component {
 
@@ -6,20 +9,9 @@ export default class WordContainer extends React.Component {
     words: []
   }
 
-  showWords = () => {
-
-  }
-
-  createWord = () => {
-
-  }
-
   render() {
     return (
-      <div className="WordContainer">
-      Render Word components here
-      {this.showWords()}
-      </div>
+      <span>{this.props.allSubmittedWords}</span>
     )
   }
 }

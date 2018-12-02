@@ -66,21 +66,32 @@ class TypePanel extends React.Component {
 
     return(
       <div className="Page">
-      <p>
-        {this.state.givenText}
-      </p>
-        <div className="AllWords">
-              {this.state.allSubmittedWords}
+
+          <div className="AllWords">
+            <WordContainer
+              allSubmittedWords={this.state.allSubmittedWords}
+              index={this.state.index}
+              givenTextWords={this.state.givenTextWords}
+
+            />
+          </div>
+
+            <span id="AllWordsSpan" >
               {this.state.currentWordComponent}
-        </div>
+            </span>
+
+            <span id="RightPanel">
+              {this.state.givenText}
+            </span>
 
         <form>
           <label>
             TypeIT:
             <input
+              ref={input=>input&&input.focus()}
               type="text"
               onChange={ (e) => this.handleInput(e, this.state.index, this.state.allSubmittedWords, this.state.givenTextWords)}
-              />
+            />
           </label>
         </form>
 

@@ -10,7 +10,6 @@ class MainContent extends React.Component {
         Main Content
         <Stats />
       </div>
-
     )
   }
 

@@ -6,6 +6,7 @@ import Header from './components/Header'
 import TypePanel from './containers/TypePanel'
 
 class App extends React.Component {
+
   render() {
     return (
       <div>
