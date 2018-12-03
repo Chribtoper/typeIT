@@ -4,6 +4,8 @@ import './App.css';
 import MainContent from './components/MainContent'
 import Header from './components/Header'
 import TypePanel from './components/TypePanel'
+import Timer from './components/Timer'
+
 
 class App extends React.Component {
   render() {
@@ -11,6 +13,7 @@ class App extends React.Component {
       <div>
         <Header />
         <MainContent />
+        <Timer />
         <TypePanel />
       </div>
     )
