@@ -31,7 +31,7 @@ class TypePanel extends React.Component {
     } else {
       this.setState({
         input: input,
-      }, this.compareCharacter(input, index)
+      }, this.compareCharacter(input, index), this.props.grabState(this.state)
     )}
   }
 

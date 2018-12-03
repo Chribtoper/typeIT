@@ -7,12 +7,20 @@ import TypePanel from './containers/TypePanel'
 
 class App extends React.Component {
 
+  state = {
+    state: null
+  }
+
+  grabState = (state) => {
+    this.setState({state})
+  }
+
   render() {
     return (
       <div>
         <Header />
         <MainContent />
-        <TypePanel />
+        <TypePanel grabState={this.grabState}/>
       </div>
     )
   }
