@@ -54,10 +54,10 @@
 }
 
 .RightContainer {
-  background-color: yellow;
-  float: left;
+  float: right;
   margin-left: 50%;
   margin-right: 50%;
+  position: absolute;
 }
 
 #AllWordsSpan {
@@ -76,4 +76,8 @@
 }
 
 .InputForm {
+}
+
+.InputField {
+  border: none;
 }
