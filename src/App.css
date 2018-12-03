@@ -47,22 +47,27 @@
   font-size: 50px;
 }
 
-.SourceWords {
+.LeftContainer {
+  float: right;
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
+.RightContainer {
   background-color: yellow;
   float: left;
   margin-left: 50%;
   margin-right: 50%;
 }
 
-.CurrentWord {
-  background-color: #5B8587;
-  float: right;
-  margin-left: 50%;
-  margin-right: 50%;
-}
-
 #AllWordsSpan {
 
+}
+
+#CurrentWord {
+  padding-right: 20px;
+  font-size: 50px;
+  color: #4B8DB3;
 }
 
 .FormDiv {

@@ -5,27 +5,30 @@ import NextWord from '../components/NextWord'
 
 export default class WordContainer extends React.Component {
 
-  state = {
-    finishedWords: [],
-    nextWord: null,
-    amountOfWords: null
-  }
-
-  renderWords = () => {
-    this.setUpFinishedWords(this.props.givenTextWords)
-    for(let i = 0; i < this.props.index; i++){
-      return this.state.finishedWords[i]
+  constructor(props){
+    super(props)
+    this.state = {
+      finishedWords: [],
+      nextWord: null,
     }
   }
 
-  setUpFinishedWords = (givenTextWords) => {
-    const finishedWords = givenTextWords.map()
-    this.setState()
+  componentDidMount(){
+    this.setState({
+      finishedWords: this.props.givenTextWords.map((word,index)=>{
+        debugger
+        return <NextWord word={word} key={`N${index}`} />
+      })
+    })
+  }
+
+  renderWords = () => {
+    return this.state.finishedWords.slice(0, this.props.index)
   }
 
   render() {
     return (
-      <div></div>
+      <div>{this.renderWords()}</div>
     )
   }
 }

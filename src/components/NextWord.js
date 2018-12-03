@@ -4,7 +4,7 @@ const NextWord = props => {
 
     return(
       <span className="NextWord">
-          {props.input}
+          {props.word}
       </span>
     )
 

@@ -7,8 +7,8 @@ class TypePanel extends React.Component {
 
   state = {
     input: '',
-    givenTextCharArray: null,
-    givenTextWords: null,
+    givenTextCharArray: [],
+    givenTextWords: [],
     givenText: "Thought I'd end up with Sean But he wasn't a match Wrote some songs about Ricky Now I listen and laugh Even almost got married and for Pete, I'm so thankful Wish I could say, 'Thank you' to Malcolm",
     allSubmittedWords: [],
     validWords: null,
@@ -66,15 +66,18 @@ class TypePanel extends React.Component {
 
     return(
       <div className="Page">
-          <div className="SourceWords">
+          <div className="RightContainer">
             <WordContainer
               index={this.state.index}
               givenTextWords={this.state.givenTextWords}
-              
+              amountOfWords={this.state.givenTextWords.length}
             />
           </div>
-          <div className="CurrentWord">
-            {this.state.allSubmittedWords}{this.state.currentWordComponent}
+          <div className="LeftContainer">
+            {this.state.allSubmittedWords}
+            <span id="CurrentWord">
+              {this.state.currentWordComponent}
+            </span>
           </div>
         <div className="FormDiv">
             <form className="InputForm">
