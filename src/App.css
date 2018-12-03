@@ -31,23 +31,44 @@
   }
 }
 
+.NextWord {
+  padding-right: 20px;
+  font-size: 50px;
+}
+
 .BadWord {
   text-decoration: line-through;
-  padding-right: 5px;
-  font-size: 16px;
+  padding-right: 20px;
+  font-size: 50px;
 }
 
 .GoodWord {
-  padding-right: 5px;
-  font-size: 16px;
+  padding-right: 20px;
+  font-size: 50px;
 }
 
-.AllWords {
+.SourceWords {
+  background-color: yellow;
+  float: left;
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
+.CurrentWord {
   background-color: #5B8587;
   float: right;
+  margin-left: 50%;
   margin-right: 50%;
 }
 
 #AllWordsSpan {
 
+}
+
+.FormDiv {
+  position: fixed;
+  margin: 20%;
+}
+
+.InputForm {
 }
