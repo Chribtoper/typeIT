@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const CreateAccount = ({input, handleCreateAccountInput, handleCreateAccountSubmit, loggedIn, handleReturnUser}) => {
+const CreateAccount = ({input, handleCreateAccountInput, handleCreateAccountSubmit, handleReturnUserClick}) => {
 
   return(
     <div>
@@ -18,7 +18,7 @@ const CreateAccount = ({input, handleCreateAccountInput, handleCreateAccountSubm
           value="Submit"/>
       </form>
       <div>
-        <button onClick={handleReturnUser}>Already a user?</button>
+        <button onClick={handleReturnUserClick}>Already a user?</button>
 
       </div>
 

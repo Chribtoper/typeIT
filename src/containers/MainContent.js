@@ -1,15 +1,31 @@
 import React from 'react'
 import Stats from '../components/Stats'
-import CreateAccount from '../components/CreateAccount'
 import LogIn from '../components/LogIn'
+import SongContainer from '../components/SongContainer'
+import CreateAccount from '../components/CreateAccount'
+
+const SONGS = 'http://localhost:3000/songs'
+
 
 class MainContent extends React.Component {
 
   state = {
+    returningUser: false,
     loggedIn: false,
-    newUser: true,
     input: '',
     newUser: false,
+    songs: [],
+    songSelected: false,
+  }
+
+  componentDidMount(){
+    fetch(SONGS)
+      .then( r => r.json())
+      .then( songs => {
+        this.setState({
+          songs: songs
+        })
+      })
   }
 
   handleCreateAccountInput = (input) => {
@@ -21,14 +37,14 @@ class MainContent extends React.Component {
   handleCreateAccountSubmit = (event) => {
     event.preventDefault()
     this.setState({
-      loggedIn: true
+      loggedIn: true,
+      returningUser: false
     })
   }
 
-  handleReturnUser = () => {
+  handleReturnUserClick = () => {
     this.setState({
-      loggedIn: true,
-      newUser: true
+      returningUser: true
     })
   }
 
@@ -40,28 +56,42 @@ class MainContent extends React.Component {
 
   handleLogInSubmit = (e) => {
     e.preventDefault()
-    this.setState({})
+    this.setState({
+      loggedIn: true
+    })
+  }
+
+  handleSelectSong = (song) => {
+    this.setState({
+      songSelected: song
+    }, () => console.log(song.body))
   }
 
   renderContent = () => {
-    if (this.state.loggedIn === false) {
+    if (this.state.returningUser === false && this.state.loggedIn === false) {
       return <CreateAccount
                 input={this.state.input}
                 handleCreateAccountInput={this.handleCreateAccountInput}
                 handleCreateAccountSubmit={this.handleCreateAccountSubmit}
-                loggedIn={this.state.loggedIn}
-                handleReturnUser={this.handleReturnUser}/>
-    } else if (this.state.newUser === true ){
+                handleReturnUserClick={this.handleReturnUserClick}/>
+    } else if (this.state.returningUser === true && this.state.loggedIn === false ){
       return <LogIn
                 input={this.state.input}
-                handleLogInInput={this.handleLogInInput}/>
+                handleLogInInput={this.handleLogInInput}
+                handleLogInSubmit={this.handleLogInSubmit}/>
+    } else if (this.state.loggedIn === true ){
+      return <SongContainer
+                songs={this.state.songs}
+                handleSelectSong={this.handleSelectSong}
+                />
+    } else {
+      return null
     }
   }
 
   render(){
     return(
       <div>
-
         <Stats timerStarted={this.props.timerStarted} timer={this.props.timer}/>
         {this.renderContent()}
       </div>
