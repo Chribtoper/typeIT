@@ -10,11 +10,11 @@ const Accuracy = (props) => {
     if(props.appState.state.allSubmittedWords.length > 0){
 
       allSubmittedWordsCount = props.appState.state.allSubmittedWords.length
-      goodWordCount = allSubmittedWordsCount.filter((word)=>{
+      goodWordCount = props.appState.state.allSubmittedWords.filter((word)=>{
          return word.type.name == "Word"
       }).length
 
-      wordsPerMinCount = (goodWordCount/allSubmittedWords)
+      accuracyPercentage = (goodWordCount/allSubmittedWordsCount)*100
 
     }
   }
@@ -22,7 +22,7 @@ const Accuracy = (props) => {
   return(
 
 
-    <div>{charsPerMinCount}</div>
+    <div>{accuracyPercentage}</div>
   )
 }
 
