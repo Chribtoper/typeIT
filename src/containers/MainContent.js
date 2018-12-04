@@ -10,7 +10,8 @@ class MainContent extends React.Component {
     returningUser: false,
     loggedIn: false,
     input: '',
-    newUser: false,
+    newUser: false
+
   }
 
   handleCreateAccountInput = (input) => {
@@ -58,11 +59,13 @@ class MainContent extends React.Component {
                 input={this.state.input}
                 handleLogInInput={this.handleLogInInput}
                 handleLogInSubmit={this.handleLogInSubmit}/>
-    } else if (this.state.loggedIn === true ){
+    } else if (this.state.loggedIn === true && this.props.songClicked === false ){
       return <SongContainer
                 songs={this.props.songs}
                 handleSelectSong={this.props.handleSelectSong}
                 />
+    } else if (this.props.songClicked === true ){
+      return null
     } else {
       return null
     }

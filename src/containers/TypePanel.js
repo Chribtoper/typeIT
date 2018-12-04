@@ -14,8 +14,7 @@ class TypePanel extends React.Component {
     validWords: null,
     badWords: null,
     currentWordComponent: null,
-    index: 0,
-    selectedSongTP: null
+    index: 0
   }
 
   componentDidMount() {

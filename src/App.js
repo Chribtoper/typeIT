@@ -14,7 +14,8 @@ class App extends React.Component {
     timerComplete: false,
     state: null,
     songs: [],
-    songSelected: false
+    songSelected: false,
+    songClicked: false
   }
 
   componentDidMount(){
@@ -55,7 +56,9 @@ class App extends React.Component {
 
   handleSelectSong = (song) => {
     this.setState({
-      songSelected: song
+      songSelected: song,
+      songClicked: true
+
     })
   }
 
@@ -66,7 +69,8 @@ class App extends React.Component {
         <MainContent
           timerStarted={this.state.timerStarted} timer={this.state.timer}
           songs={this.state.songs}
-          handleSelectSong={this.handleSelectSong}/>
+          handleSelectSong={this.handleSelectSong}
+          songClicked={this.state.songClicked}/>
         <TypePanel
           grabState={this.grabState} startTimer={this.startTimer}
           songs={this.state.songs}
