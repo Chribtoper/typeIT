@@ -9,19 +9,20 @@ class TypePanel extends React.Component {
     input: '',
     givenTextCharArray: [],
     givenTextWords: [],
-    givenText: "Thought I'd end up with Sean But he wasn't a match Wrote some songs about Ricky Now I listen and laugh Even almost got married and for Pete, I'm so thankful Wish I could say, 'Thank you' to Malcolm",
+    givenText: "hello shawna whats up",
     allSubmittedWords: [],
     validWords: null,
     badWords: null,
     currentWordComponent: null,
-    index: 0
+    index: 0,
+    selectedSongTP: null
   }
 
   componentDidMount() {
     this.setState({
       givenTextWords: this.state.givenText.split(" "),
       givenTextCharArray: this.state.givenText.split(" ").map(word=>word.split(''))
-    })
+    }, ()=> {this.props.grabState(this.state)})
   }
 
   handleInput = (e, index, allSubmittedWords, givenTextWords) => {
@@ -43,7 +44,7 @@ class TypePanel extends React.Component {
       allSubmittedWords: [...allSubmittedWords, this.state.currentWordComponent],
       index: index+1,
       currentWordComponent: null
-    })
+    },  ()=> {this.props.grabState(this.state)})
     e.target.value = ""
   }
 
@@ -55,15 +56,27 @@ class TypePanel extends React.Component {
         validWords: input,
         badWords: null,
         currentWordComponent: <Word key={index} input={input} />
-      })
+    },  ()=> {this.props.grabState(this.state)})
     } else {
       this.setState({
         validWords: null,
         badWords: input,
         currentWordComponent: <BadWord key={index} input={input} />
-      })
+    },  ()=> {this.props.grabState(this.state)})
     }
   }
+
+  static getDerivedStateFromProps(props, state) {
+     if (props.songSelected) {
+       return {
+         givenText: props.songSelected.body,
+         givenTextWords: props.songSelected.body.split(" "),
+         givenTextCharArray: props.songSelected.body.split(" ").map(word=>word.split(''), ()=> {this.props.grabState(this.state)})
+       }
+     } else {
+       return null
+     }
+   }
 
   render(){
 
@@ -74,6 +87,7 @@ class TypePanel extends React.Component {
               index={this.state.index}
               givenTextWords={this.state.givenTextWords}
               amountOfWords={this.state.givenTextWords.length}
+              songSelected={this.props.songSelected}
             />
           </div>
           <div className="LeftContainer">

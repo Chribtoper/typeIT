@@ -4,28 +4,13 @@ import LogIn from '../components/LogIn'
 import SongContainer from '../components/SongContainer'
 import CreateAccount from '../components/CreateAccount'
 
-const SONGS = 'http://localhost:3000/songs'
-
-
 class MainContent extends React.Component {
 
   state = {
     returningUser: false,
     loggedIn: false,
     input: '',
-    newUser: false,
-    songs: [],
-    songSelected: false,
-  }
-
-  componentDidMount(){
-    fetch(SONGS)
-      .then( r => r.json())
-      .then( songs => {
-        this.setState({
-          songs: songs
-        })
-      })
+    newUser: false
   }
 
   handleCreateAccountInput = (input) => {
@@ -61,12 +46,6 @@ class MainContent extends React.Component {
     })
   }
 
-  handleSelectSong = (song) => {
-    this.setState({
-      songSelected: song
-    }, () => console.log(song.body))
-  }
-
   renderContent = () => {
     if (this.state.returningUser === false && this.state.loggedIn === false) {
       return <CreateAccount
@@ -81,8 +60,8 @@ class MainContent extends React.Component {
                 handleLogInSubmit={this.handleLogInSubmit}/>
     } else if (this.state.loggedIn === true ){
       return <SongContainer
-                songs={this.state.songs}
-                handleSelectSong={this.handleSelectSong}
+                songs={this.props.songs}
+                handleSelectSong={this.props.handleSelectSong}
                 />
     } else {
       return null

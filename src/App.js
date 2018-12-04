@@ -5,12 +5,26 @@ import MainContent from './containers/MainContent'
 import Header from './components/Header'
 import TypePanel from './containers/TypePanel'
 
+const SONGS = 'http://localhost:3000/songs'
+
 class App extends React.Component {
   state = {
     timerStarted: false,
     timer: 60,
     timerComplete: false,
-    state: null
+    state: null,
+    songs: [],
+    songSelected: false
+  }
+
+  componentDidMount(){
+    fetch(SONGS)
+      .then( r => r.json())
+      .then( songs => {
+        this.setState({
+          songs: songs
+        })
+      })
   }
 
   startTimer = () => {
@@ -39,12 +53,24 @@ class App extends React.Component {
     this.setState({state: state})
   }
 
+  handleSelectSong = (song) => {
+    this.setState({
+      songSelected: song
+    })
+  }
+
   render() {
     return (
       <div>
         <Header />
-        <MainContent timerStarted={this.state.timerStarted} timer={this.state.timer} />
-        <TypePanel grabState={this.grabState} startTimer={this.startTimer}/>
+        <MainContent
+          timerStarted={this.state.timerStarted} timer={this.state.timer}
+          songs={this.state.songs}
+          handleSelectSong={this.handleSelectSong}/>
+        <TypePanel
+          grabState={this.grabState} startTimer={this.startTimer}
+          songs={this.state.songs}
+          songSelected={this.state.songSelected}/>
       </div>
     )
   }
