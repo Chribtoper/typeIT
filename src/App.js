@@ -34,7 +34,7 @@ class App extends React.Component {
     setInterval(()=>{this.myTimer()},1000);
 
   }
-  
+
    grabState = (state) => {
     this.setState({state: state})
   }
@@ -43,7 +43,6 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-
         <MainContent timerStarted={this.state.timerStarted} timer={this.state.timer} />
         <TypePanel grabState={this.grabState} startTimer={this.startTimer}/>
       </div>
