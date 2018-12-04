@@ -26,8 +26,10 @@ class TypePanel extends React.Component {
 
   handleInput = (e, index, allSubmittedWords, givenTextWords) => {
     let input = e.target.value
-    if (input[input.length-1]===" ") {
+    if (input[input.length-1]===" "&&input!==" ") {
       this.handleWordLockIn(input, index, allSubmittedWords, e); this.props.grabState(this.state)
+    } else if (input === " ") {
+      e.target.value = ""
     } else {
       this.setState({
         input: input,
