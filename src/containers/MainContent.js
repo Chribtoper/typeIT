@@ -1,5 +1,5 @@
 import React from 'react'
-import Stats from './Stats'
+import Stats from '../components/Stats'
 import CreateAccount from './CreateAccount'
 import LogIn from './LogIn'
 
@@ -28,7 +28,7 @@ class MainContent extends React.Component {
 
   handleReturnUser = () => {
     this.setState({
-      loggedIn: true, 
+      loggedIn: true,
       newUser: true
     })
   }
@@ -62,6 +62,8 @@ class MainContent extends React.Component {
   render(){
     return(
       <div>
+
+        <Stats timerStarted={this.props.timerStarted} timer={this.props.timer}/>
         {this.renderContent()}
       </div>
 
