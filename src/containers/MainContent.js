@@ -65,16 +65,19 @@ class MainContent extends React.Component {
                 handleSelectSong={this.props.handleSelectSong}
                 />
     } else if (this.props.songClicked === true ){
-      return null
+      return <Stats
+          timerStarted={this.props.timerStarted} timer={this.props.timer}/>
     } else {
       return null
     }
   }
 
+
+
+
   render(){
     return(
       <div>
-        <Stats timerStarted={this.props.timerStarted} timer={this.props.timer}/>
         {this.renderContent()}
       </div>
     )
