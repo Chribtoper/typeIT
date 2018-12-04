@@ -2,21 +2,19 @@ import React from 'react'
 import WordContainer from './WordContainer'
 import Word from '../components/Word'
 import BadWord from '../components/BadWord'
-import MainContent from './MainContent'
 
 class TypePanel extends React.Component {
 
   state = {
     input: '',
-    givenTextCharArray: null,
-    givenTextWords: null,
+    givenTextCharArray: [],
+    givenTextWords: [],
     givenText: "Thought I'd end up with Sean But he wasn't a match Wrote some songs about Ricky Now I listen and laugh Even almost got married and for Pete, I'm so thankful Wish I could say, 'Thank you' to Malcolm",
     allSubmittedWords: [],
     validWords: null,
     badWords: null,
     currentWordComponent: null,
-    index: 0,
-
+    index: 0
   }
 
   componentDidMount() {
@@ -29,11 +27,14 @@ class TypePanel extends React.Component {
   handleInput = (e, index, allSubmittedWords, givenTextWords) => {
     let input = e.target.value
     if (input[input.length-1]===" ") {
-      this.handleWordLockIn(input, index, allSubmittedWords, e)
+      this.handleWordLockIn(input, index, allSubmittedWords, e); this.props.grabState(this.state)
     } else {
       this.setState({
         input: input,
-      }, this.compareCharacter(input, index)
+      }, () => {
+          this.compareCharacter(input, index)
+        this.props.grabState(this.state)
+      }
     )}
   }
 
@@ -68,31 +69,30 @@ class TypePanel extends React.Component {
 
     return(
       <div className="Page">
-      <p>
-        {this.state.givenText}
-      </p>
-        <div className="AllWords">
-              {this.state.allSubmittedWords}
+          <div className="RightContainer">
+            <WordContainer
+              index={this.state.index}
+              givenTextWords={this.state.givenTextWords}
+              amountOfWords={this.state.givenTextWords.length}
+            />
+          </div>
+          <div className="LeftContainer">
+            {this.state.allSubmittedWords}
+            <span id="CurrentWord">
               {this.state.currentWordComponent}
-        </div>
-
-        <form>
-          <label>
-            TypeIT:
-            <input
-              type="text"
-              onChange={ (e) => {
-                this.handleInput(e, this.state.index, this.state.allSubmittedWords, this.state.givenTextWords);
-                this.props.startTimer(e);
-              }}
+            </span>
+          </div>
+        <div className="FormDiv">
+            <form className="InputForm">
+              <input
+                className="InputField"
+                ref={input=>input&&input.focus()}
+                type="text"
+                onChange={ (e) => this.handleInput(e, this.state.index, this.state.allSubmittedWords, this.state.givenTextWords)}
               />
-          </label>
-        </form>
-
+            </form>
+        </div>
       </div>
-
-
-
     )
   }
 

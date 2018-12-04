@@ -3,7 +3,6 @@ import Stats from '../components/Stats'
 import CreateAccount from './CreateAccount'
 import LogIn from './LogIn'
 
-
 class MainContent extends React.Component {
 
   state = {
@@ -66,7 +65,6 @@ class MainContent extends React.Component {
         <Stats timerStarted={this.props.timerStarted} timer={this.props.timer}/>
         {this.renderContent()}
       </div>
-
     )
   }
 

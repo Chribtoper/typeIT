@@ -3,14 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 import MainContent from './containers/MainContent'
 import Header from './components/Header'
-import TypePanel from './containers/TypePanel'
+import TypePanel from './components/TypePanel'
 
 class App extends React.Component {
   state = {
     timerStarted: false,
     timer: 60,
-    timerComplete: false
-
+    timerComplete: false,
+    state: null
   }
 
   startTimer = () => {
@@ -34,14 +34,18 @@ class App extends React.Component {
     setInterval(()=>{this.myTimer()},1000);
 
   }
-
+  
+   grabState = (state) => {
+    this.setState({state: state})
+  }
 
   render() {
     return (
       <div>
         <Header />
+
         <MainContent timerStarted={this.state.timerStarted} timer={this.state.timer} />
-        <TypePanel startTimer={this.startTimer}/>
+        <TypePanel grabState={this.grabState} startTimer={this.startTimer}/>
       </div>
     )
   }
