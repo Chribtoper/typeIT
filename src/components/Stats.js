@@ -10,10 +10,10 @@ class Stats extends React.Component {
   render(){
     return(
       <div>
-        <MinuteTimer timerStarted={this.props.timerStarted} timer={this.props.timer} />
-        <WordPerMin />
-        <CharsPerMin />
-        <Accuracy />
+        <MinuteTimer appState={this.props.appState} timerStarted={this.props.timerStarted} timer={this.props.timer} />
+        <WordPerMin appState={this.props.appState}/>
+        <CharsPerMin appState={this.props.appState}/>
+        <Accuracy appState={this.props.appState}/>
       </div>
     )
   }
