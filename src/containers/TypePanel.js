@@ -21,7 +21,7 @@ class TypePanel extends React.Component {
     this.setState({
       givenTextWords: this.state.givenText.split(" "),
       givenTextCharArray: this.state.givenText.split(" ").map(word=>word.split(''))
-    })
+    }, ()=> {this.props.grabState(this.state)})
   }
 
   handleInput = (e, index, allSubmittedWords, givenTextWords) => {
@@ -43,7 +43,7 @@ class TypePanel extends React.Component {
       allSubmittedWords: [...allSubmittedWords, this.state.currentWordComponent],
       index: index+1,
       currentWordComponent: null
-    })
+    },  ()=> {this.props.grabState(this.state)})
     e.target.value = ""
   }
 
@@ -55,13 +55,13 @@ class TypePanel extends React.Component {
         validWords: input,
         badWords: null,
         currentWordComponent: <Word key={index} input={input} />
-      })
+    },  ()=> {this.props.grabState(this.state)})
     } else {
       this.setState({
         validWords: null,
         badWords: input,
         currentWordComponent: <BadWord key={index} input={input} />
-      })
+    },  ()=> {this.props.grabState(this.state)})
     }
   }
 

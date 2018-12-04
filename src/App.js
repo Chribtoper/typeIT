@@ -43,7 +43,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <MainContent timerStarted={this.state.timerStarted} timer={this.state.timer} />
+        <MainContent appState={this.state} timerStarted={this.state.timerStarted} timer={this.state.timer} />
         <TypePanel grabState={this.grabState} startTimer={this.startTimer}/>
       </div>
     )

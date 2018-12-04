@@ -92,7 +92,7 @@ class MainContent extends React.Component {
   render(){
     return(
       <div>
-        <Stats timerStarted={this.props.timerStarted} timer={this.props.timer}/>
+        <Stats timerStarted={this.props.timerStarted} timer={this.props.timer} appState={this.props.appState}/>
         {this.renderContent()}
       </div>
     )
