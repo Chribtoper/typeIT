@@ -10,7 +10,8 @@ class MainContent extends React.Component {
     returningUser: false,
     loggedIn: false,
     input: '',
-    newUser: false
+    newUser: false,
+    humzah: true
   }
 
   handleCreateAccountInput = (input) => {
