@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import MainContent from './containers/MainContent'
 import Header from './components/Header'
-import TypePanel from './components/TypePanel'
+import TypePanel from './containers/TypePanel'
 
 class App extends React.Component {
   state = {
@@ -34,7 +34,7 @@ class App extends React.Component {
     setInterval(()=>{this.myTimer()},1000);
 
   }
-  
+
    grabState = (state) => {
     this.setState({state: state})
   }

@@ -1,7 +1,7 @@
 import React from 'react'
 import Stats from '../components/Stats'
-import CreateAccount from './CreateAccount'
-import LogIn from './LogIn'
+import CreateAccount from '../components/CreateAccount'
+import LogIn from '../components/LogIn'
 
 class MainContent extends React.Component {
 

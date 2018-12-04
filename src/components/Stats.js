@@ -1,8 +1,8 @@
 import React from 'react'
-import MinuteTimer from './components/MinuteTimer'
-import WordPerMin from './components/WordPerMin'
-import CharsPerMin from './components/CharsPerMin'
-import Accuracy from './components/Accuracy'
+import MinuteTimer from './MinuteTimer'
+import WordPerMin from './WordPerMin'
+import CharsPerMin from './CharsPerMin'
+import Accuracy from './Accuracy'
 
 class Stats extends React.Component {
 
