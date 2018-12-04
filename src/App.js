@@ -66,20 +66,15 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-<<<<<<< HEAD
         <MainContent
           timerStarted={this.state.timerStarted} timer={this.state.timer}
           songs={this.state.songs}
           handleSelectSong={this.handleSelectSong}
-          songClicked={this.state.songClicked}/>
+          songClicked={this.state.songClicked} appState={this.state}/>
         <TypePanel
           grabState={this.grabState} startTimer={this.startTimer}
           songs={this.state.songs}
           songSelected={this.state.songSelected}/>
-=======
-        <MainContent appState={this.state} timerStarted={this.state.timerStarted} timer={this.state.timer} />
-        <TypePanel grabState={this.grabState} startTimer={this.startTimer}/>
->>>>>>> NewShawna
       </div>
     )
   }
