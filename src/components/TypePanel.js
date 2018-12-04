@@ -49,12 +49,10 @@ class TypePanel extends React.Component {
 
   render(){
 
-    console.log(this.state.givenText[0].toLowerCase().split('')[this.state.i-1]);
-
 
     return(
       <div>
-      <p>{console.log(this.state.givenText)}</p>
+      <p></p>
       <p>
         {this.state.givenText}
       </p>

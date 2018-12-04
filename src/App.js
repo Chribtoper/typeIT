@@ -13,7 +13,6 @@ class App extends React.Component {
       <div>
         <Header />
         <MainContent />
-        <Timer />
         <TypePanel />
       </div>
     )
