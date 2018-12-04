@@ -10,7 +10,7 @@ class App extends React.Component {
     timerStarted: false,
     timer: 60,
     timerComplete: false
-    
+
   }
 
   startTimer = () => {
