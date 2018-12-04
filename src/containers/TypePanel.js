@@ -93,9 +93,6 @@ class TypePanel extends React.Component {
             </form>
         </div>
       </div>
-
-
-
     )
   }
 
