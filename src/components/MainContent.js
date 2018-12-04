@@ -2,29 +2,15 @@ import React from 'react'
 import Stats from './Stats'
 import CreateAccount from './CreateAccount'
 import LogIn from './LogIn'
-import SongContainer from './SongContainer'
 
-const SONGS = 'http://localhost:3000/songs'
 
 class MainContent extends React.Component {
 
   state = {
-    returningUser: false,
     loggedIn: false,
+    newUser: true,
     input: '',
     newUser: false,
-    songs: [],
-    songSelected: false,
-  }
-
-  componentDidMount(){
-    fetch(SONGS)
-      .then( r => r.json())
-      .then( songs => {
-        this.setState({
-          songs: songs
-        })
-      })
   }
 
   handleCreateAccountInput = (input) => {
@@ -36,14 +22,14 @@ class MainContent extends React.Component {
   handleCreateAccountSubmit = (event) => {
     event.preventDefault()
     this.setState({
-      loggedIn: true,
-      returningUser: false
+      loggedIn: true
     })
   }
 
-  handleReturnUserClick = () => {
+  handleReturnUser = () => {
     this.setState({
-      returningUser: true
+      loggedIn: true,
+      newUser: true
     })
   }
 
@@ -55,36 +41,21 @@ class MainContent extends React.Component {
 
   handleLogInSubmit = (e) => {
     e.preventDefault()
-    this.setState({
-      loggedIn: true
-    })
-  }
-
-  handleSelectSong = (song) => {
-    this.setState({
-      songSelected: song
-    }, () => console.log(song.body))
+    this.setState({})
   }
 
   renderContent = () => {
-    if (this.state.returningUser === false && this.state.loggedIn === false) {
+    if (this.state.loggedIn === false) {
       return <CreateAccount
                 input={this.state.input}
                 handleCreateAccountInput={this.handleCreateAccountInput}
                 handleCreateAccountSubmit={this.handleCreateAccountSubmit}
-                handleReturnUserClick={this.handleReturnUserClick}/>
-    } else if (this.state.returningUser === true && this.state.loggedIn === false ){
+                loggedIn={this.state.loggedIn}
+                handleReturnUser={this.handleReturnUser}/>
+    } else if (this.state.newUser === true ){
       return <LogIn
                 input={this.state.input}
-                handleLogInInput={this.handleLogInInput}
-                handleLogInSubmit={this.handleLogInSubmit}/>
-    } else if (this.state.loggedIn === true ){
-      return <SongContainer
-                songs={this.state.songs}
-                handleSelectSong={this.handleSelectSong}
-                />
-    } else {
-      return null
+                handleLogInInput={this.handleLogInInput}/>
     }
   }
 
