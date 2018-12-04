@@ -11,7 +11,6 @@ class MainContent extends React.Component {
     loggedIn: false,
     input: '',
     newUser: false
-
   }
 
   handleCreateAccountInput = (input) => {
@@ -66,7 +65,9 @@ class MainContent extends React.Component {
                 />
     } else if (this.props.songClicked === true ){
       return <Stats
-          timerStarted={this.props.timerStarted} timer={this.props.timer}/>
+                timerStarted={this.props.timerStarted}
+                timer={this.props.timer}
+                appState={this.props.appState}/>
     } else {
       return null
     }

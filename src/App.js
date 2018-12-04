@@ -73,7 +73,8 @@ class App extends React.Component {
             timerStarted={this.state.timerStarted} timer={this.state.timer}
             songs={this.state.songs}
             handleSelectSong={this.handleSelectSong}
-            songClicked={this.state.songClicked}/>
+            songClicked={this.state.songClicked}
+            appState={this.state}/>
           <TypePanel
             grabState={this.grabState} startTimer={this.startTimer}
             songs={this.state.songs}
