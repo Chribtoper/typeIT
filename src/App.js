@@ -65,16 +65,31 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
-        <MainContent
-          timerStarted={this.state.timerStarted} timer={this.state.timer}
-          songs={this.state.songs}
-          handleSelectSong={this.handleSelectSong}
-          songClicked={this.state.songClicked} appState={this.state}/>
-        <TypePanel
-          grabState={this.grabState} startTimer={this.startTimer}
-          songs={this.state.songs}
-          songSelected={this.state.songSelected}/>
+      {this.state.songClicked
+        ?
+        <div>
+          <Header />
+          <MainContent
+            timerStarted={this.state.timerStarted} timer={this.state.timer}
+            songs={this.state.songs}
+            handleSelectSong={this.handleSelectSong}
+            songClicked={this.state.songClicked}/>
+          <TypePanel
+            grabState={this.grabState} startTimer={this.startTimer}
+            songs={this.state.songs}
+            songSelected={this.state.songSelected}/>
+        </div>
+        :
+        <div>
+          <Header />
+          <MainContent
+            timerStarted={this.state.timerStarted} timer={this.state.timer}
+            songs={this.state.songs}
+            handleSelectSong={this.handleSelectSong}
+            songClicked={this.state.songClicked}/>
+          </div>
+      }
+
       </div>
     )
   }
