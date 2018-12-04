@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import MainContent from './containers/MainContent'
 import Header from './components/Header'
-import TypePanel from './containers/TypePanel'
+import TypePanel from './components/TypePanel'
+import Timer from './components/Timer'
 
 class App extends React.Component {
 
@@ -21,6 +22,8 @@ class App extends React.Component {
         <Header />
         <MainContent />
         <TypePanel grabState={this.grabState}/>
+        <Timer />
+
       </div>
     )
   }
