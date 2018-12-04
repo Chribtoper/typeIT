@@ -2,6 +2,7 @@ import React from 'react'
 import WordContainer from './WordContainer'
 import Word from '../components/Word'
 import BadWord from '../components/BadWord'
+import MainContent from './MainContent'
 
 class TypePanel extends React.Component {
 
@@ -14,7 +15,8 @@ class TypePanel extends React.Component {
     validWords: null,
     badWords: null,
     currentWordComponent: null,
-    index: 0
+    index: 0,
+
   }
 
   componentDidMount() {
@@ -79,7 +81,10 @@ class TypePanel extends React.Component {
             TypeIT:
             <input
               type="text"
-              onChange={ (e) => this.handleInput(e, this.state.index, this.state.allSubmittedWords, this.state.givenTextWords)}
+              onChange={ (e) => {
+                this.handleInput(e, this.state.index, this.state.allSubmittedWords, this.state.givenTextWords);
+                this.props.startTimer(e);
+              }}
               />
           </label>
         </form>
