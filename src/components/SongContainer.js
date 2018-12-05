@@ -8,14 +8,15 @@ const SongContainer = ({songs, handleSelectSong}) => {
               key={song.id}
               song={song}
               handleSelectSong={handleSelectSong}
-/>
+              />
   })
 
+
+
   return(
-    <div>
-      Choose a Song!
+    <div className="row">
       {song}
-    </div>
+    </div >
   )
 }
 

@@ -2,7 +2,9 @@ import React from 'react'
 
 const Header = () => {
   return(
-    <div>typeIT</div>
+    <div>
+      <img className="header" src={require('./typeit.gif')}/>
+    </div>
   )
 }
 
