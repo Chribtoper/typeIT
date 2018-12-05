@@ -1,5 +1,4 @@
 import React from 'react';
-import Carousel from 'react-responsive-carousel'
 import logo from './logo.svg';
 import './App.css';
 import MainContent from './containers/MainContent'

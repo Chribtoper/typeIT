@@ -95,9 +95,13 @@
 }
 
 .display-song {
+  margin-left: 35%;
+  width: 30%;
+  border: 3px solid green;
+  padding: 10px;
   border: #ffff8d;
   border-style: solid
-
+}
 
 /* The Modal (background) */
 .modal {
