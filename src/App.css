@@ -87,3 +87,14 @@
 
 .InputField {
 }
+
+.nav-wrapper {
+  /* background-color: #448aff; */
+  border: #01579b;
+  border-style: solid
+}
+
+.display-song {
+  border: #ffff8d;
+  border-style: solid
+}

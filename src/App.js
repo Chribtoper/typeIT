@@ -4,6 +4,7 @@ import './App.css';
 import MainContent from './containers/MainContent'
 import Header from './components/Header'
 import TypePanel from './containers/TypePanel'
+import DisplaySong from './components/DisplaySong'
 
 const SONGS = 'http://localhost:3000/songs'
 
@@ -64,7 +65,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="application">
       {this.state.songClicked
         ?
         <div>
@@ -75,6 +76,7 @@ class App extends React.Component {
             handleSelectSong={this.handleSelectSong}
             songClicked={this.state.songClicked}
             appState={this.state}/>
+          <DisplaySong songSelected={this.state.songSelected}/>
           <TypePanel
             grabState={this.grabState} startTimer={this.startTimer}
             songs={this.state.songs}

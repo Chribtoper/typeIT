@@ -9,6 +9,7 @@ class Stats extends React.Component {
 
   render(){
     return(
+    // if timerstopped == false
       <div>
         <MinuteTimer appState={this.props.appState} timerStarted={this.props.timerStarted} timer={this.props.timer} />
         <WordPerMin appState={this.props.appState}/>
