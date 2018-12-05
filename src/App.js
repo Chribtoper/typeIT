@@ -20,7 +20,8 @@ class App extends React.Component {
     songClicked: false,
     cpm: 0,
     wpm: 0,
-    accuracy: 0
+    accuracy: 0,
+    keyDown: false
   }
 
   componentDidMount(){
@@ -96,6 +97,18 @@ class App extends React.Component {
     })
   }
 
+  handleKeyDown = () => {
+    this.setState({
+      keyDown: true
+    })
+  }
+
+  handleKeyUp = () => {
+    this.setState({
+      keyDown: false
+    })
+  }
+
 
 
   render() {
@@ -111,11 +124,16 @@ class App extends React.Component {
             handleSelectSong={this.handleSelectSong}
             songClicked={this.state.songClicked}
             appState={this.state}/>
-          <DisplaySong songSelected={this.state.songSelected}/>
+          <DisplaySong
+            songSelected={this.state.songSelected}
+            keyDown={this.state.keyDown}
+            />
           <TypePanel
             grabState={this.grabState} startTimer={this.startTimer}
             songs={this.state.songs}
-            songSelected={this.state.songSelected}/>
+            songSelected={this.state.songSelected}
+            handleKeyUp={this.handleKeyUp}
+            handleKeyDown={this.handleKeyDown}/>
         </div>
         :
         <div>

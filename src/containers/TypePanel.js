@@ -109,6 +109,8 @@ class TypePanel extends React.Component {
                 ref={input=>input&&input.focus()}
                 type="text"
                 onChange={ (e) => this.handleInput(e, this.state.index, this.state.allSubmittedWords, this.state.givenTextWords)}
+                onKeyDown={this.props.handleKeyDown}
+                onKeyUp={this.props.handleKeyUp}
               />
             </form>
         </div>
@@ -121,3 +123,8 @@ class TypePanel extends React.Component {
  }
 
 export default TypePanel
+
+// on keydown change class it to shake
+// on keyup change it back to no change
+// conditionally changing styling
+// react key down and key up
