@@ -23,8 +23,16 @@ const CharsPerMin = (props) => {
 
   return(
 
+    <div className="ui huge statistic" >
+      <div className="value" id="cpm">
+        {charsPerMinCount}
+      </div>
+      <div className="label">
+        Characters Per Min
+      </div>
+    </div>
 
-    <div id="cpm">{charsPerMinCount}</div>
+
   )
 }
 

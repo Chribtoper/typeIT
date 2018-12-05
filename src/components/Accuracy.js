@@ -14,7 +14,7 @@ const Accuracy = (props) => {
          return word.type.name == "Word"
       }).length
 
-      accuracyPercentage = (goodWordCount/allSubmittedWordsCount)*100
+      accuracyPercentage = Math.round((goodWordCount/allSubmittedWordsCount)*100)
 
     }
   }
@@ -22,7 +22,15 @@ const Accuracy = (props) => {
   return(
 
 
-    <div id="accuracy">{accuracyPercentage}</div>
+    <div className="ui huge statistic">
+      <div className="value" id="accuracy">
+        {accuracyPercentage} %
+      </div>
+      <div className="label">
+        Accuracy
+      </div>
+    </div>
+
   )
 }
 

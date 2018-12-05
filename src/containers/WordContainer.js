@@ -21,10 +21,10 @@ export default class WordContainer extends React.Component {
        return null
      }
    }
-   
+
 
   renderWords = () => {
-    return this.state.finishedWords.slice(this.props.index, this.props.index+3)
+    return this.state.finishedWords.slice(this.props.index, this.props.index+5)
   }
 
   render() {

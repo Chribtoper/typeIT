@@ -85,6 +85,8 @@ class TypePanel extends React.Component {
   render(){
 
     return(
+      <div >
+      <hr />
       <div className="Page">
           <div className="RightContainer">
             <WordContainer
@@ -111,6 +113,8 @@ class TypePanel extends React.Component {
             </form>
         </div>
       </div>
+    <hr />
+    </div>
     )
   }
 

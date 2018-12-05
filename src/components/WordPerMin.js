@@ -24,8 +24,15 @@ const WordPerMin = (props) => {
 
   return(
 
+    <div className="ui huge statistic">
+      <div className="value" id="wpm">
+        {wordsPerMinCount}
+      </div>
+      <div className="label">
+        Words Per Min
+      </div>
+    </div>
 
-    <div id="wpm">{wordsPerMinCount}</div>
   )
 }
 
