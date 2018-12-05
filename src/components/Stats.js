@@ -10,6 +10,7 @@ class Stats extends React.Component {
 
   render(){
     return(
+    // if timerstopped == false
       <div>
         <div className="ui three statistics">
 
