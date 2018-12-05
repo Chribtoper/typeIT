@@ -2,7 +2,7 @@ import React from 'react'
 
 const MinuteTimer = (props) => {
   return(
-    <div>{props.timer}</div>
+    <div >{props.timer}</div>
   )
 }
 

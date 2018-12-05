@@ -24,7 +24,7 @@ const CharsPerMin = (props) => {
   return(
 
 
-    <div>{charsPerMinCount}</div>
+    <div id="cpm">{charsPerMinCount}</div>
   )
 }
 

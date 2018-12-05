@@ -25,7 +25,7 @@ const WordPerMin = (props) => {
   return(
 
 
-    <div>{wordsPerMinCount}</div>
+    <div id="wpm">{wordsPerMinCount}</div>
   )
 }
 

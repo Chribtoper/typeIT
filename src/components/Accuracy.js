@@ -22,7 +22,7 @@ const Accuracy = (props) => {
   return(
 
 
-    <div>{accuracyPercentage}</div>
+    <div id="accuracy">{accuracyPercentage}</div>
   )
 }
 
