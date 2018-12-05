@@ -11,15 +11,16 @@ class Modal extends React.Component{
       <div id="myModal" className="modal">
         <div className="modal-content">
           <div className="modal-header">
-            <span className="close">&times;</span>
-            <h2>Congratulations! You Typed {this.props.appState.wpm} Words Per Minute </h2>
+          <span className="close">&times;</span>
+            <h2 className="modal-header-congrats">Congratulations! You Rock!</h2>
           </div>
           <div className="modal-body">
-            <p>CPM: {this.props.appState.cpm}</p>
-            <p>Accuracy: {this.props.appState.accuracy} %</p>
+            <h1 className='modal-text-h1'>Here are your Type Stats!</h1>
+            <h2 className='modal-text-h2'>{this.props.appState.wpm} Words Per Minute</h2>
+            <h2 className='modal-text-h2'>{this.props.appState.cpm} Characters Per Minute</h2>
+            <h2 className='modal-text-h2'>{this.props.appState.accuracy} Accuracy</h2>
           </div>
           <div className="modal-footer">
-            <h3>Modal Footer</h3>
           </div>
         </div>
       </div>

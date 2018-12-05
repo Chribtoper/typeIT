@@ -6,7 +6,7 @@ const Song = ({song, handleSelectSong}) => {
 
     <div className="column">
       <div className="card">
-        <img src={song.img_url} alt="Avatar" width="100%" height ="33%" onClick={ () => handleSelectSong(song)}/>
+        <img className="song-img" src={song.img_url} alt="Avatar" width="100%" height ="33%" onClick={ () => handleSelectSong(song)}/>
         <div class="container">
           <h4><b>{song.artist.name}</b></h4>
           <p>{song.title}</p>

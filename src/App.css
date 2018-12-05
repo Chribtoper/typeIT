@@ -142,7 +142,8 @@
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 80%;
+    width: 50%;
+    height: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
@@ -177,17 +178,22 @@
 }
 
 .modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
+    padding: 40px 16px;
+    background-color: #8A2BE2;
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+  padding: 10px 20px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  margin-left: 0%;
+  background-color: #B0C4DE;
+}
 
 .modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+    padding: 40px 16px;
+    background-color: #8A2BE2;
 }
 
 /* Float four columns side by side */
@@ -268,4 +274,27 @@ img {
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.modal-text-h1 {
+  font-size: 40px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.modal-text-h2 {
+  font-size: 30px;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding-top: 20px;
+}
+
+.modal-header-congrats {
+  padding-left: 10%;
+  padding-right: 35%;
+}
+
+.song-img {
+  margin-left: 16%;
+  padding-top: 10px;
 }
